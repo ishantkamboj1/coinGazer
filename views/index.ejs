@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CoinGazer</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <script async src="https://static.coinstats.app/widgets/v3/cs-widget.js"></script>
+    <script src="https://widgets.coingecko.com/coingecko-coin-heatmap-widget.js"></script>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo-container">
+                <img src="images/logo.png" alt="Logo">
+            </div>
+            <h2 id="name">CoinGazer</h2>
+                <div class="hamburger-menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#markets">Markets</a></li>
+                <li><a href="#trends">Trends</a></li>
+                <li><a href="#news">News</a></li>
+                <li><a href="#learn">Learn</a></li>
+                <li><a href="#more">More</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <div class="mid">
+            <div id="crypto-display">
+                <form action="/fetch-data" method="get">
+                  <label for="ticker">Choose a symbol:</label>
+                  <input list="tickers" id="ticker" name="ticker" placeholder="Start typing..." autocomplete="on">
+                  <datalist id="tickers">
+                    <% symbols.forEach(function(symbol) { %>
+                        <option value="<%= symbol %>">
+                    <% }); %>
+                  </datalist>
+                  <button type="submit">Submit</button>
+                  <div id="Selected-ticker">Symbol: <%= locals.symbol %></div>
+                  <div id="lastPrice">Price: $<%= locals.lastPrice %></div>
+                  <div id="priceChange">24h Change: $<%= locals.priceChange %></div>
+                  <div id="priceChangePercent">24h Change (%): <%= locals.priceChangePercent %>%</div>
+                  <div id="highLowPrice">
+                       <span>24h High: $<%= locals.highPrice %></span>
+                       <span>24h Low: $<%= locals.lowPrice %></span>
+                  </div>
+                  <div id="volume">24h Volume: <%= locals.volume %></div>
+                </form>
+            </div>
+            <!-- <div id="crypto-graph"> -->
+                <div class="tradingview-widget-container">
+                    <div class="tradingview-widget-copyright">
+                      <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-symbol-overview.js ">   
+                             {
+                              "symbols": [
+                              ["BINANCE:BTCUSDT|1M"],
+                              ["BINANCE:ETHUSDT|1M"],
+                              ["BINANCE:DOTUSDT|1M"],
+                              ["BINANCE:MATICUSDT|1M"],
+                              ["BINANCE:SOLUSDT|1M"],
+                              ["BINANCE:BNBUSDT|1M"]
+                              ],
+                              "chartOnly": true,
+                              "display": "flex",
+                              "justify-content": "space-evenly",
+                              "width": 650,
+                              "height": 400,
+                              "locale": "en",
+                              "colorTheme": "dark",
+                              "autosize": false,
+                              "showVolume": false,
+                              "showMA": false,
+                              "hideDateRanges": false,
+                              "hideMarketStatus": false,
+                              "hideSymbolLogo": false,
+                              "scalePosition": "right",
+                              "scaleMode": "Normal",
+                              "fontFamily": "-apple-system, BlinkMacSystemFont, Trebuchet MS, Roboto, Ubuntu, sans-serif",
+                              "fontSize": "10",
+                              "noTimeScale": false,
+                              "valuesTracking": "1",
+                              "changeMode": "price-and-percent",
+                              "chartType": "area",
+                              "maLineColor": "#2962FF",
+                              "maLineWidth": 1,
+                              "maLength": 9,
+                              "lineWidth": 2,
+                              "lineType": 0,
+                              "dateRanges": [
+                              "1d|1",
+                              "1m|30",
+                              "3m|60",
+                              "12m|1D",
+                              "60m|1W",
+                              "all|1M"
+                               ]
+                              }
+                        </script>
+                      
+                      
+                      
+                      <a href="https://www.tradingview.com/" rel="noopener nofollow" target="_blank">
+                        <span class="blue-text">Track all markets on TradingView</span>
+                      </a>
+                      
+                    </div>
+                 </div>
+                <!-- </div> -->
+            <div id="greed-index" id="fear-and-greed-index">
+                <cs-widget type="fear-and-greed" theme="dark" direction="vertical" background="#0D0D0D" is-market-sentiment-visible="true" is-last-updated-visible="true" title-color="#FFFFFF" chart-indicator-one-color="#F02935" chart-indicator-two-color="#F07D29" chart-indicator-three-color="#9ACB82" chart-indicator-four-color="#34B349" subtitle-color="#999999" last-updated-color="#999999" arrow-color="#262626"></cs-widget>
+            </div>
+            
+        </div>
+
+        <div id="bottom">
+            <div class="crypto">
+                <img src="images/bitcoin-logo.gif" alt="Bitcoin-logo">
+                <span class="crypto-name"><%= locals.prices['BTCUSDT']  %></span>
+              
+            </div>
+            <div class="crypto">
+                <img src="images/eth-logo.gif" alt="ethereum-logo">
+                <span class="crypto-name"><%= locals.prices['ETHUSDT'] %></span>
+               
+            </div>
+            <div class="crypto">
+                <img src="images/dot-logo.png" alt="DOT-logo">
+                <span class="crypto-name"><%= locals.prices['DOTUSDT'] %></span>
+                
+            </div>
+            <div class="crypto">
+                <img src="images/matic-logo.png" alt="MATIC-logo">
+                <span class="crypto-name"><%= locals.prices['MATICUSDT'] %></span>
+                
+            </div>
+            <div class="crypto">
+                <img src="images/Solana-logo.png" alt="Solana-logo">
+                <span class="crypto-name"><%= locals.prices['SOLUSDT'] %></span>
+                
+            </div>
+            <div class="crypto">
+                <img src="images/BNB-logo.gif" alt="BNB-logo">
+                <span class="crypto-name"><%= locals.prices['BNBUSDT'] %></span>
+            </div>
+            
+        </div>
+    
+    <footer>
+        
+        <ul class="footerlinks">
+            <li><a href="#">About</a></li>
+            <li><a href="#">User Agreement</a></li>
+            <li><a href="#">Private Policy</a></li>
+            <li><a href="#">Contact us</a></li>
+        </ul>
+            
+        
+    </footer>
+
+    
+    <script src="index.js" charset="utf-8"></script>  
+
+     
+</body>
+</html>

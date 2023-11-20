@@ -1,0 +1,401 @@
+body {
+    max-width: 100%;
+    max-height: 100% ;
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+}
+
+
+header {
+    
+    background-image:url("../images/header.png") ;
+    background-repeat: no-repeat;
+    background-size: cover; 
+    background-position: center; 
+    color: white;
+ 
+}
+
+#name{
+    display: flex;
+    text-align: center;
+    margin: 18px;
+
+}
+
+nav {
+    display: flex;
+    align-items: flex-end;
+    padding: 0 20px;
+}
+
+.logo-container img {
+    border-radius: 50%;
+    height: 100%; 
+    max-height: 55px; 
+    width: auto; 
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-links li {
+    padding: 20px;
+}
+
+.nav-links li a {
+    text-decoration: none;
+    color: white;
+    font-weight: 500;
+    transition: color 0.3s ease-in-out;
+}
+
+.nav-links li a:hover, .nav-links li a:focus {
+    color: #0096FF; 
+}
+
+main{
+    background-color: black;
+}
+.mid {
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+    /* background-image: url(../images/display.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center; */
+    padding: 20px; 
+    height: 64vh;
+    background-color: #131418;
+    
+}
+
+#crypto-display, #crypto-graph, #greed-index {
+    height: 100%;
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+}
+
+#crypto-display {
+    flex: 1; 
+    max-width: 20%; 
+    background-color: #131722; 
+    color: #ffffff; 
+    border-radius: 5%;
+    padding: 10px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    gap: 10px; 
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    border: 1px solid grey;
+}
+
+#crypto-display form {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+  
+  #crypto-display label {
+    margin-bottom: 5px;
+  }
+  
+  #crypto-display input,
+  #crypto-display button,
+  #crypto-display div {
+    padding: 8px;
+    margin-bottom: 5px;
+    border: 1px solid #444;
+    background-color: #333;
+    color: #fff;
+    border-radius: 4px;
+  }
+  
+  #crypto-display button {
+    cursor: pointer;
+    background-color: #555;
+  }
+  
+  #crypto-display input:focus,
+  #crypto-display button:focus {
+    outline: none;
+    border-color: #0088cc; 
+  }
+  
+ 
+  #crypto-display div {
+    background: none;
+    border: none;
+  }
+  
+  #highLowPrice span {
+    display: block; 
+}
+
+
+
+#crypto-graph {
+    flex: 3; 
+    max-width: 55%; 
+}
+
+
+div.tradingview-widget-container{
+    display: flex;
+    flex: 3; 
+    max-width: 55%; 
+    align-items: baseline;
+    justify-content: space-evenly;
+    flex-wrap: wrap
+
+}
+
+/* div.tradingview-widget-copyright{
+    
+    display: flex;
+    flex: 3; 
+    max-width: 55%; 
+    align-items: baseline;
+    justify-content: space-evenly;
+    flex-wrap: wrap
+
+} */
+
+
+
+#greed-index {
+    
+    flex: 1; 
+    max-width: 25%;
+    height: auto;
+    margin: 0 auto; 
+    
+}
+
+
+#bottom {
+    /* background-image: url(../images/top-crypto1.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center; */
+    display: flex;
+    align-items: center;
+    padding: 0px;
+    border-top: 1px solid grey;
+    border-bottom:1px solid grey ;
+    
+    
+}
+
+.crypto {
+    width: 16.66%;
+    text-align: center; 
+    margin: 10px 0px;
+    
+}
+
+.crypto img {
+    width: 90px; 
+    height: auto; 
+    margin-bottom: 2px; 
+}
+
+.crypto-name {
+    display: block;
+    font-size: 1em; 
+    margin-bottom: 5px;
+    color: whitesmoke;
+
+}
+
+
+
+
+footer {
+    text-align: center;
+    width: 100%;
+    background-color: black;
+    max-height: 39px;
+    color: white; 
+    
+    
+}
+
+.footerlinks {
+    list-style: none;
+    margin: 0;
+    padding: 10px;
+}
+
+.footerlinks li {
+    padding: 0 20px;
+    display: inline; 
+}
+
+.footerlinks a, .footerlinks a:visited { 
+    color: white;
+    text-decoration: none;
+}
+
+.footerlinks a:hover {
+    color: #ccc;
+    text-decoration: underline; 
+}
+
+
+@media (max-width: 1250px) {
+    
+    header {
+        
+        padding: 10px;
+    }
+    
+    .mid {
+        padding: 200px;
+        flex-direction: column; 
+        height: auto; 
+    }
+
+    #crypto-display, 
+    #crypto-graph, 
+    #greed-index {
+        max-width: 100%; 
+        flex-basis: auto; 
+        margin-bottom: 20px; 
+    }
+
+    
+    #crypto-display {
+        padding: 5px; 
+        gap: 5px; 
+    }
+
+    #crypto-display input,
+    #crypto-display button,
+    #crypto-display div {
+        font-size: 14px; 
+    }
+    
+    #crypto-display {
+        border-radius: 0;
+        max-width: 100%; 
+        
+    }
+
+    #crypto-display form {
+        flex-direction: row; 
+        flex-wrap: wrap; 
+        align-items: center; 
+    }
+
+    #crypto-display label,
+    #crypto-display input,
+    #crypto-display button,
+    #crypto-display div {
+        flex: 1; 
+        margin-bottom: 0; 
+        margin-right: 10px; 
+    }
+
+    #crypto-display button {
+        flex: none; 
+    }
+
+    #highLowPrice span {
+        display: inline-block; 
+        margin-right: 10px; 
+    }
+    
+    .tradingview-widget-container {
+        display: none;
+    }
+
+    .tradingview-widget-copyright{
+        display: none;
+    }
+
+    #greed-index{
+        display: none;
+    }
+
+
+}
+
+@media (max-width: 800px) {
+  
+   nav{
+    justify-content: space-between;
+    align-items: center
+   }
+  .nav-links {
+    display: none; 
+    flex-direction: column;
+    width: 100%;
+    position: absolute;
+    top: 55px; 
+    left: 0;
+    background-color: #131418; 
+    z-index: 1000; 
+    }
+
+
+    .hamburger-menu {
+    display: block; 
+    cursor: pointer;
+    }
+
+    .hamburger-menu {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        height: 25px; 
+        width: 35px; 
+    }
+    
+    .hamburger-menu span {
+        display: block;
+        height: 3px; 
+        width: 100%;
+        background-color: white; 
+    }
+
+
+    .nav-active {
+    display: flex;
+    }
+
+   .nav-links li {
+    width: 100%;
+    text-align: center;
+    }
+
+   .nav-links li a {
+    padding: 15px 0;
+    width: 100%;
+    display: block;
+   }
+
+   .mid {
+    padding: 100px;
+    
+}
+
+   #bottom {
+    flex-direction: row; 
+    flex-wrap: wrap; 
+    justify-content: space-evenly;
+}
+
+  .crypto {
+    width: 33%; 
+    margin: 5px 0px; 
+  }
+
+}
